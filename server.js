@@ -4,28 +4,37 @@ var dgram = require("dgram");
 var app = express();
 
 
-//var Matti = require("./Matti")("192.168.180.21", 4445);
+// //var Matti = require("./Matti")("192.168.180.21", 4445);
 
-// var client = new net.Socket();
-// client.connect(7777, '10.70.0.50', function() {
-// 	console.log('Connected');
-// 	client.write('Hello, server! Love, Client.');
+// // var client = new net.Socket();
+// // client.connect(7777, '10.70.0.50', function() {
+// // 	console.log('Connected');
+// // 	client.write('Hello, server! Love, Client.');
+// // });
+
+// app.get("/*", function (req, res) {
+//     console.log("Uusi tila", req.param("pin"), req.param("state"), req.host);
 // });
 
-app.get("/*", function (req, res) {
-    console.log("Uusi tila", req.param("pin"), req.param("state"), req.host);
+
+
+// app.listen(3113);
+
+
+import Matrix from "./business/Records/Matrix";
+
+
+var testiMatti = new Matrix({
+    id: 1,
+    ip: "192.168.180.201",
+    port: 5555
 });
 
+//testiMatti.setVideoConnection(5, 3);
 
+testiMatti.requestAllStates();
 
-app.listen(3113);
-
-
-
-
-
-
-    //client.write("change");
+    ///client.write("change");
     // switch(parseInt(req.param("pin"))) {
     //     case 1:
     //     console.log("ykkonen");
@@ -84,17 +93,17 @@ app.listen(3113);
 
 
 
-var server = net.createServer(function(socket) {
-	socket.write('Echo server\r\n');
-	socket.pipe(socket);
-    socket.on("data", function(data) {
-	console.log('Received: ' + data);
-	//server.destroy(); // kill client after server's response
-    });
-});
+// var server = net.createServer(function(socket) {
+// 	socket.write('Echo server\r\n');
+// 	socket.pipe(socket);
+//     socket.on("data", function(data) {
+// 	console.log('Received: ' + data);
+// 	//server.destroy(); // kill client after server's response
+//     });
+// });
 
 
-server.listen(3112);
+// server.listen(3112);
 
 
 

@@ -7,7 +7,8 @@
     	"name": "Jaska"
   	},
   	"scripts": {
-    	"start": "babel-node ./app.js"
+    	"start": "babel-node ./app.js",
+		"watch": "babel-watch ./server.js"
   	},
   	"dependencies": {
 		"babel-core": "^6.13.2",
@@ -31,9 +32,11 @@
     	"mysql": "2.11.1",
     	"body-parser": "1.15.2",
     	"graphql-sequelize": "3.0.0-0",
-		"redux": "3.6.0"
+		"redux": "3.6.0",
+		"immutable": "3.8.1"
 	},
 	"devDependencies": {
-		"babel-cli": "6.11.4"
+		"babel-cli": "6.11.4",
+		"babel-watch": "2.0.6"
   	}
 }
