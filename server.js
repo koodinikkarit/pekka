@@ -12,17 +12,8 @@ var app = express();
 // // 	client.write('Hello, server! Love, Client.');
 // // });
 
-// app.get("/*", function (req, res) {
-//     console.log("Uusi tila", req.param("pin"), req.param("state"), req.host);
-// });
-
-
-
-// app.listen(3113);
-
-
 import Matrix from "./business/Records/Matrix";
-
+import ProjectorInfocus from "./business/Records/ProjectorInfocus";
 
 var testiMatti = new Matrix({
     id: 1,
@@ -30,9 +21,29 @@ var testiMatti = new Matrix({
     port: 5555
 });
 
-//testiMatti.setVideoConnection(5, 3);
+var tykki = new ProjectorInfocus({
+    id: 1,
+    ip: "192.168.180.10",
+    port: 23
+});
 
-testiMatti.requestAllStates();
+app.get("/*", function (req, res) {
+    console.log("Uusi tila", req.param("pin"), req.param("state"), req.host);
+    //testiMatti.setVideoConnection(parseInt(req.param("pin")), 5);
+    if (req.param("pin") == 12 && req.param("state") == 1) {
+        tykki.turnOnProjector();
+        console.log("tykki paalle");
+    }
+});
+
+
+
+app.listen(3111, () => {
+    console.log("listeting");
+});
+
+
+
 
     ///client.write("change");
     // switch(parseInt(req.param("pin"))) {
