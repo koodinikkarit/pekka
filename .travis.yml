@@ -1,5 +1,6 @@
-services:
-  docker
+language: node_js
+node_js:
+  "7"
 install:
   - docker login -u $DOCKER_ID_USER -p $DOCKER_USER_PASSWORD
   - export TAG=${TRAVIS_TAG:-latest}
