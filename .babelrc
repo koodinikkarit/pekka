@@ -1,16 +1,6 @@
 {
-  "passPerPreset": true,
-  "plugins": [
-    "transform-runtime"
-  ],
-  "presets": [
-    {
-      "plugins": [
-
-      ]
-    },
-    "react",
-    "es2015",
-    "stage-0"
-  ]
+	"presets": [
+		"es2016",
+		"stage-1"
+	]
 }
