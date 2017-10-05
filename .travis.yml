@@ -1,0 +1,9 @@
+services:
+  docker
+install:
+  - docker login -u $DOCKER_ID_USER -p $DOCKER_USER_PASSWORD
+  - export TAG=${TRAVIS_TAG:-latest}
+  - docker build -t $DOCKER_ID_USER/pekka .
+  - docker tag $DOCKER_ID_USER/pekka $DOCKER_ID_USER/pekka:$TAG
+after_success:
+  - docker push $DOCKER_ID_USER/pekka
